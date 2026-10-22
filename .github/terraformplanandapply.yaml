@@ -1,0 +1,70 @@
+name: Terraform workflow (Plan and Apply)
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  id-token: write
+  contents: read
+
+# env:
+  
+#   ARM_CLIENT_ID: 
+#   ARM_TENANT_ID: 
+#   ARM_SUBSCRIPTION_ID: 
+
+jobs:
+
+  workflow-terraform-plan-apply:
+    name: Workflow-Terraform-plan-apply
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+ 
+      - name: Azure Login
+        uses: azure/login@v3
+        with:
+          client-id: be88c650-c841-4259-a3d5-862fe02b71a7
+          tenant-id: 5f8d3f88-8e5b-4e25-9d00-e62229c9cc71
+          subscription-id: 228a46db-66c5-4a23-9ed7-677a552990bc
+      
+
+      - name: azure/use-kubelogin@v1
+        uses: azure/use-kubelogin@v1
+        with:
+          kubelogin-version: 'v0.0.24'
+# 
+      # - name: Fetch AKS Credentials
+      #   run: |
+      #     az aks get-credentials --resource-group aks-rg --name "aks-argocd-cluster-central"
+          
+      
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Format
+        run: terraform fmt -recursive
+
+      - name: Terraform Validate
+        run: terraform validate
+
+      - name: Terraform Plan
+        run: terraform plan -out=tfplan
+
+      # - name: Terraform Apply
+      #   run: terraform apply -auto-approve tfplan
