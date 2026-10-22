@@ -3,5 +3,9 @@ terraform {
     flux = { 
         source = "fluxcd/flux"
     }
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      
+    }
   }
 }
