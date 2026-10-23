@@ -8,3 +8,17 @@ variable "fluxcd_instances" {
     }
   
 }
+
+variable "github_org" {
+  type = string
+  default = "anandambitionv2"
+}
+
+variable "github_repository" {
+  type = string
+  default = "fluxcd-aks"
+}
+
+variable "github_token" {
+  type = string
+}
