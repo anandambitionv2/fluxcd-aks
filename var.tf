@@ -2,6 +2,7 @@ variable "fluxcd_instances" {
     type = map(object({
         embedded_manifests = optional(bool)
         path               = string
+        version            = optional(string)
     }))
     default = {
     

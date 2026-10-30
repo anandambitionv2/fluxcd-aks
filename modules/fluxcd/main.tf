@@ -3,4 +3,5 @@ resource "flux_bootstrap_git" "fluxcd" {
 
   embedded_manifests = each.value.embedded_manifests
   path               = each.value.path
+  version            = each.value.version
 }
