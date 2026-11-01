@@ -1,6 +1,6 @@
-# module "fluxcd" {
-#     source = "./modules/fluxcd"
+module "fluxcd" {
+    source = "./modules/fluxcd"
     
-#     fluxcd_instances = var.fluxcd_instances
+    fluxcd_instances = var.fluxcd_instances
   
-# }
+}
