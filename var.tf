@@ -18,7 +18,7 @@ variable "github_org" {
 
 variable "github_repository" {
   type = string
-  default = "fluxcd-manifests-2"
+  default = "fluxcd-manifests"
 }
 
 variable "github_token" {
