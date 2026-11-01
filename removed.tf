@@ -1,5 +1,5 @@
 removed {
-  from = module.fluxcd.flux_bootstrap_git.fluxcd["1"]
+  from = module.fluxcd.flux_bootstrap_git.fluxcd
 
   lifecycle {
     destroy = false
