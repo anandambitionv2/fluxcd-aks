@@ -4,6 +4,7 @@ variable "fluxcd_instances" {
     embedded_manifests = optional(bool)
     path               = string
     version            = optional(string)
+    import             = optional(bool)
   }))
   default = {
   
