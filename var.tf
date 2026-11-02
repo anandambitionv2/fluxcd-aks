@@ -4,6 +4,7 @@ variable "fluxcd_instances" {
         path               = string
         version            = optional(string)
         import             = optional(bool)
+        values             = optional(list(string))
     }))
     default = {
     
